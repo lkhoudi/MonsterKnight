@@ -1,6 +1,6 @@
 #Author: your.email@your.domain.com
 @tag
-Feature: US_001
+Feature: US_001_AttackMonster
 
   As a Player
   I want my knight to be able to attack a monster
@@ -32,7 +32,7 @@ Feature: US_001
       | "dragon" | 5              | 10     | "Damage must be less then 5" |
       | "goblin" | 3              | 4      | "Damage must be less then 3" |
 
-  Scenario Outline: Forbidding attacking dead monsters with negative damage
+  Scenario Outline: Forbidding attacking monsters with negative damage
     Given the damage <damage> caused to the monster and a monster including a name <name> and health <initialHealth>
     When  the knight attacks the monster
     Then  the system refuses with <messageError>
