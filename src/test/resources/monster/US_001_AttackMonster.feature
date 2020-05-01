@@ -1,6 +1,6 @@
 #Author: your.email@your.domain.com
 @tag
-Feature: US_001
+Feature: US_001_AttackMonster
 
   As a Player
   I want my knight to be able to attack a monster
