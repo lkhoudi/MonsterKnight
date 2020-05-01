@@ -16,7 +16,6 @@ public class AttackingMonsterDefs {
     private int damage;
     private int anotherDamage;
 
-
     @Given("^the damage (\\d+) caused to the monster and a monster including a name \"([^\"]*)\" and health (\\d+)$")
     public void the_damage_caused_to_the_monster_and_a_monster_including_a_name_and_health(int arg1, String arg2, int arg3) throws Throwable {
         this.monster.setName(arg2);
