@@ -1,5 +1,7 @@
 package fightors;
 
+import java.util.Objects;
+
 public class Monster
 {
     // variables d'instance
@@ -62,6 +64,4 @@ public class Monster
         }
         return this.health -= damage;
     }
-
-
 }
