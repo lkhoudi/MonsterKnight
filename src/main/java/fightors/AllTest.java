@@ -13,6 +13,14 @@ public class AllTest {
                 new MonsterTest() {
                     protected void runTest() { testAttacked(); }
                 }
+        );        suite.addTest(
+                new MonsterTest() {
+                    protected void runTest() { testAttackedWithNegativeHighDamage(); }
+                }
+        );        suite.addTest(
+                new MonsterTest() {
+                    protected void runTest() { testAttackedWithTooHighDamage(); }
+                }
         );
         suite.addTest(
                 new MonsterTest() {
