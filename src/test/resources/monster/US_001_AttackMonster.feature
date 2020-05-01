@@ -13,28 +13,29 @@ Feature: US_001
     Examples:
     | name     | initialHealth | damage | new_health |
     | "dragon" | 8             | 3      | 5          |
+    | "goblin" | 5             | 4      | 1          |
 
-#  Scenario Outline: Forbidding attacking dead monsters
-#    Given monster including a <name> and <initialHealth>
-#    When  the knight attacks the monster
-#    Then  the system refuses with <messageError>
-#    Examples:
-#      | name   | initialHealth | messageError                          |
-#      | dragon | 0              | It's forbidden to hit a dead monster ! |
-#
-#  Scenario Outline: Forbidding attacking monster with too high damage
-#    Given the <damage> caused to the monster and a monster including a <name> and <initialHealth>
-#    When  the knight attacks the monster
-#    Then  the system refuses with <messageError>
-#    Examples:
-#      | name   | initialHealth | damage | messageError              |
-#      | dragon | 7              | 10     | Damage must be less then 7 |
-#      | goblin | 3              | 4      | Damage must be less then 3 |
-#
-#  Scenario Outline: Forbidding attacking dead monsters with negative damage
-#    Given the <damage> caused to the monster and a monster including a <name> and <initialHealth>
-#    When  the knight attacks the monster
-#    Then  the system refuses with <messageError>
-#    Examples:
-#      | name   | initialHealth | damage | messageError           |
-#      | dragon |      10        |   0    | Damage must be positive |
+  Scenario Outline: Forbidding attacking dead monsters
+    Given the damage <damage> caused to the monster and a monster including a name <name> and health <initialHealth>
+    When  the knight attacks the monster
+    Then  the system refuses with <messageError>
+    Examples:
+      | name     | initialHealth  | damage | messageError                            |
+      | "dragon" | 0              | 2      | "It's forbidden to hit a dead monster !"|
+
+  Scenario Outline: Forbidding attacking monster with too high damage
+    Given the damage <damage> caused to the monster and a monster including a name <name> and health <initialHealth>
+    When  the knight attacks the monster
+    Then  the system refuses with <messageError>
+    Examples:
+      | name     | initialHealth  | damage |  messageError                |
+      | "dragon" | 5              | 10     | "Damage must be less then 5" |
+      | "goblin" | 3              | 4      | "Damage must be less then 3" |
+
+  Scenario Outline: Forbidding attacking dead monsters with negative damage
+    Given the damage <damage> caused to the monster and a monster including a name <name> and health <initialHealth>
+    When  the knight attacks the monster
+    Then  the system refuses with <messageError>
+    Examples:
+      | name     | initialHealth  | damage | messageError              |
+      | "dragon" |      10        |   0    | "Damage must be positive" |

@@ -52,7 +52,7 @@ public class Monster
     public int attacked(int damage) throws IllegalArgumentException {
         // Insérez votre code ici
         if(this.health == 0){
-            throw new IllegalArgumentException("It's forbidden to hit a dead monster ! ");
+            throw new IllegalArgumentException("It's forbidden to hit a dead monster !");
         }
         else if(damage > this.health){
             throw new IllegalArgumentException("Damage must be less then " + this.health);
