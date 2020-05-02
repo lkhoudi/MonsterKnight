@@ -15,7 +15,7 @@ public class AllTest {
                 }
         );        suite.addTest(
                 new MonsterTest() {
-                    protected void runTest() { testAttackedWithNegativeHighDamage(); }
+                    protected void runTest() { testAttackedWithNegativeDamage(); }
                 }
         );        suite.addTest(
                 new MonsterTest() {
