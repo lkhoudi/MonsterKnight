@@ -29,7 +29,7 @@ public class AttackingMonsterDefs {
         try {
             this.knight.attackMonster(this.damage, this.monster);
             Assert.assertNotNull(this.monster);
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             this.messageError = e.getMessage();
         }
     }
