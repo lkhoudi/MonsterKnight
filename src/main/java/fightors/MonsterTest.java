@@ -55,7 +55,7 @@ public class MonsterTest extends TestCase {
         Monster deadMonster = new Monster(this.francois);
         deadMonster.setHealth(0);
         try {
-            this.francois.attackMonster(5, deadMonster);
+            deadMonster.attacked(5);
         }catch(Exception exp){
             assert(exp.getMessage().contains("It's forbidden to hit a dead monster !"));
             assert(exp.getClass().equals(IllegalStateException.class));
@@ -65,7 +65,7 @@ public class MonsterTest extends TestCase {
     @Test
     public void testAttackedWithTooHighDamage(){
         try {
-            this.francois.attackMonster(this.dragon.getHealth() + 3, this.dragon);
+            this.dragon.attacked(this.dragon.getHealth() + 3);
         }catch(Exception exp){
             assert(exp.getMessage().contains("Damage must be less then " + this.dragon.getHealth()));
             assert(exp.getClass().equals(IllegalArgumentException.class));
@@ -73,7 +73,7 @@ public class MonsterTest extends TestCase {
     }
 
     @Test
-    public void testAttackedWithNegativeHighDamage(){
+    public void testAttackedWithNegativeDamage(){
         try {
             this.francois.attackMonster(-2, this.dragon);
         }catch(Exception exp){
