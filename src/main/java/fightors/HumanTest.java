@@ -134,4 +134,29 @@ public class HumanTest {
         assertFalse(human.getGod().getName().equals("Kratos") && human.getGod().getAlias().equals("Pas encore dieu de la guerre"));
         assertTrue(human.getGod().getName().equals("Eros") && human.getGod().getAlias().equals("Dieu de l'amour"));
     }
+
+
+    @Test
+    public void testHuman3() {
+        String humanName = "Lydia";
+        Knight knight = new Knight(humanName);
+        checkEqualConstructor1(knight, humanName);
+    }
+
+    @Test
+    public void testGetGodKnight() {
+        //for the first constructor
+        Knight knight = new Knight("Imed");
+        assertNull(knight.getGod());
+
+        //for the defy method and isGod
+        Knight kratos = new Knight("Kratos");
+        kratos.defy(new OlympianGod("Ares", "Dieu de la guerre"));
+        assertTrue(kratos.isGod());
+        assertTrue(kratos.getGod().getName().equals("Kratos") &&
+                kratos.getGod().getAlias().equals("Dieu de la guerre") &&
+                !kratos.getGod().getMortality());
+    }
+
+
 }

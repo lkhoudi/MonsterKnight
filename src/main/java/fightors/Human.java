@@ -23,6 +23,10 @@ public class Human {
         this.god = god;
     }
 
+    public Human() {
+
+    }
+
     /**
      * Checks if the human is a god or not
      * @return true if the human is a god, false otherwise

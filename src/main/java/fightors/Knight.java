@@ -4,12 +4,11 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class Knight
+public class Knight extends Human
 {
 
     // variables d'instance - remplacez l'exemple qui suit par le vôtre
     private Set<Monster> monsters;
-    private String name;
 
     /**
      * Constructeur d'objets de classe Knight
@@ -17,7 +16,7 @@ public class Knight
      */
     public Knight(String name)
     {
-        this.name = name;
+        super(name);
         // initialisation des variables d'instance
         this.monsters = new HashSet<Monster>();
 
@@ -29,14 +28,6 @@ public class Knight
 
     public void setMonsters(Set<Monster> monsters){
         this.monsters = monsters;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     /**
@@ -65,7 +56,7 @@ public class Knight
     public String toString() {
         return "Knight{" +
                 "monsters=" + monsters +
-                ", name='" + name + '\'' +
+                ", name='" + this.getName() + '\'' +
                 '}';
     }
 
@@ -75,11 +66,11 @@ public class Knight
         if (o == null || getClass() != o.getClass()) return false;
         Knight knight = (Knight) o;
         return Objects.equals(monsters, knight.monsters) &&
-                Objects.equals(name, knight.name);
+                Objects.equals(this.getName(), knight.getName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(monsters, name);
+        return Objects.hash(monsters, this.getName());
     }
 }
