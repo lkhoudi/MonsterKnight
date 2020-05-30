@@ -106,6 +106,10 @@ public class OlympianGod {
         this.human = human;
     }
 
+    public String order(Human human, Monster monster){
+        human.setOrdered(true);
+        return "God " + this.getName() + "has ordered human" + human.getName() + "to attack the monster" + monster.getName();
+    }
 
 }
 

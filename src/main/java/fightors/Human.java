@@ -4,12 +4,14 @@ public class Human {
 
     private String name;
     private OlympianGod god;
+    private boolean isOrdered;
 
     /**
      * Constructor 1
      * @param name
      */
     public Human(String name) {
+        this.isOrdered = false;
         this.name = name;
         this.god = null;
     }
@@ -51,6 +53,17 @@ public class Human {
         }
     }
 
+    public Human(boolean isOrdered) {
+        this.isOrdered = isOrdered;
+    }
+
+    public boolean isOrdered() {
+        return isOrdered;
+    }
+
+    public void setOrdered(boolean ordered) {
+        isOrdered = ordered;
+    }
 
     /**
      * @return the name
