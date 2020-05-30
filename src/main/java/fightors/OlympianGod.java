@@ -1,11 +1,16 @@
 package fightors;
 
-public class OlympianGod {
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
+public class OlympianGod extends Observer {
 
     private boolean mortality;
     private String name;
     private String alias;
     private Human human;
+    private List<String> logs;
 
     /**
      * Constructor 1
@@ -17,6 +22,8 @@ public class OlympianGod {
         this.mortality = false;
         this.alias = alias;
         this.human = null;
+        this.setKnights( new HashSet<Knight>() );
+        this.logs = new ArrayList<String>();
     }
     /**
      * Constructor 2
@@ -48,6 +55,21 @@ public class OlympianGod {
         return (this.human == null)? false: true;
     }
 
+    /**
+     * Some description
+     * @param human
+     * @param monster
+     * @return
+     */
+    public String order(Human human, Monster monster){
+        human.setOrdered(true);
+        return "God " + this.getName() + "has ordered human" + human.getName() + "to attack the monster" + monster.getName();
+    }
+
+    @Override
+    public void update(Knight attackerKnight, Monster attackedMonster) {
+        this.logs.add("Le chevalier "+attackerKnight.getName()+" a occis le monstre"+attackedMonster.getName());
+    }
 
     // getters and setters
 
@@ -105,11 +127,15 @@ public class OlympianGod {
     public void setHuman(Human human) {
         this.human = human;
     }
-
-    public String order(Human human, Monster monster){
-        human.setOrdered(true);
-        return "God " + this.getName() + "has ordered human" + human.getName() + "to attack the monster" + monster.getName();
+    public List<String> getLogs() {
+        return logs;
     }
+    public void setLogs(List<String> logs) {
+        this.logs = logs;
+    }
+
+
+
 
 }
 

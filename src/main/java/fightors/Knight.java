@@ -9,6 +9,7 @@ public class Knight
 
     // variables d'instance - remplacez l'exemple qui suit par le vôtre
     private Set<Monster> monsters;
+    private Set<Observer> observers;
     private String name;
 
     /**
@@ -20,6 +21,7 @@ public class Knight
         this.name = name;
         // initialisation des variables d'instance
         this.monsters = new HashSet<Monster>();
+        this.observers = new HashSet<Observer>();
 
     }
 
@@ -29,6 +31,14 @@ public class Knight
 
     public void setMonsters(Set<Monster> monsters){
         this.monsters = monsters;
+    }
+
+    public Set<Observer> getObservers() {
+        return observers;
+    }
+
+    public void setObservers(Set<Observer> observers) {
+        this.observers = observers;
     }
 
     public String getName() {
@@ -59,6 +69,16 @@ public class Knight
 
     private void fillMonsterSet(Monster monster) {
         this.monsters.add(monster);
+    }
+
+    /**
+     * This function triggers the update function for all this knight's observers
+     * @param attackedMonster
+     */
+    public void notifyAllObservers(Monster attackedMonster){
+        for (Observer observer : observers){
+            observer.update(this, attackedMonster);
+        }
     }
 
     @Override

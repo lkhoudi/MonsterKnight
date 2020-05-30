@@ -164,4 +164,10 @@ public class OlympianGodTest {
         assertTrue(aresGod.getHuman().getName().equals("Ares") && aresGod.getHuman().getGod()== null);
     }
 
+    @Test
+    public void update(){
+
+    }
+
+
 }
