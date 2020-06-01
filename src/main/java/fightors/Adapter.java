@@ -20,6 +20,7 @@ public class Adapter extends Human {
     public void doOrder(Monster monster){
         if(this.isOrdered()){
             this.knight.attackMonster(10, monster);
+            this.knight.notifyAllObservers(monster);
         }
     }
 }

@@ -20,6 +20,13 @@ public class Monster
         this.name = "monster";
     }
 
+    public Monster(String name, Knight knight){
+        this.name = name;
+        this.knight = knight;
+        // initialisation des variables d'instance
+        this.health = 10;
+    }
+
     public int getHealth(){
         return this.health;
     }
